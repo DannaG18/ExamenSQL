@@ -327,7 +327,9 @@ Consultar los proveedores que han suministrado productos y la cantidad total sum
 Consultar los productos que tienen un precio de venta superior al precio promedio de todos los productos 
 
 ```sql
-
+SELECT p.id_producto, p.nombre, p.precio_venta, p.cantidad_stock, p.estado
+FROM productos p
+WHERE p.precio_venta > (SELECT AVG(precio_venta) FROM productos);
 ```
 
 Consultar los clientes que han gastado más del promedio general en sus compras Consultar las categorías que tienen más de 5 productos 
