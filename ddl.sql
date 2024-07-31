@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS categorias(
 CREATE TABLE IF NOT EXISTS compras (
     id_compra INT(11),
     id_cliente VARCHAR(20),
-    fecha DATETIME,
+    fecha DATE,
     medio_pago CHAR(1),
     comentario VARCHAR(300),
     estado CHAR(1),
@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS compras_productos (
     cantidad INT(11),
     total DECIMAL(16,2),
     estado TINYINT,
+    CONSTRAINT pk_id_compras_productos PRIMARY KEY (id_compra, id_producto),
     CONSTRAINT fk_id_compras_productos_c FOREIGN KEY (id_compra) REFERENCES compras (id_compra),
     CONSTRAINT fk_id_compras_productos_p FOREIGN KEY (id_producto) REFERENCES productos (id_producto) 
 );
